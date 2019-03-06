@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
+  <!-- link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/> -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  <!-- script type="text/javascript" src="DataTables/datatables.min.js"></script> -->
+  <!-- script type="text/javascript" src="static/nan-helper.js"></script -->
+
+  <script type="text/javascript" src="./lstock.json.js"></script>
+  <script type="text/javascript" src="./nan-helper.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      var denuller = function ( data, type, row ) { return denull(data); };
+
+      $('#refTable').DataTable( {
+//          ajax: "/ajaxForTable",
+          bPaginate: false,
+          data: aDemoItems,
+          columns: [
+              { data: "name" },
+              { data: "output1", render: denuller },
+              { data: "output2", render: denuller },
+              { data: "out2_10", render: denuller },
+              { data: "seedling", render: denuller },
+              { data: "price_s", render: denuller },
+              { data: "price_vb", render: denuller },
+              { data: "bundle", render: denuller },
+              { data: "bndl_prof", render: denuller },
+//              { data: "date", render: function ( data, type, row ) { return Ms2YYYYMMDD(data * 24000 * 3600); } },
+//              { data: "dateTimeMs", render: function ( data, type, row ) { return Ms2YYYYMMDDhhmmssttt(data); } },
+              { data: "t_sngl_min", render: denuller },
+              { data: "t_bndl_min", render: denuller },
+              { data: "t_farm_min", render: denuller }
+          ]
+      } );
+    } );
+  </script>
+
+</head>
+
+<body>
+  <h1>aaref Page: LStock</h1>
+
+  <a href="./index.html">Back to Home Page</a>
+
+  <br/>
+
+  <h4>Reference data</h4>
+
+    <table id="refTable" class="display" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>output1</th>
+          <th>output2</th>
+          <th>out2_10</th>
+          <th>seedling</th>
+          <th>price_s</th>
+          <th>price_vb</th>
+          <th>bundle</th>
+          <th>bndl_prof</th>
+          <th>t_sngl_min</th>
+          <th>t_bndl_min</th>
+          <th>t_farm_min</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <th>name</th>
+          <th>output1</th>
+          <th>output2</th>
+          <th>out2_10</th>
+          <th>seedling</th>
+          <th>price_s</th>
+          <th>price_vb</th>
+          <th>bundle</th>
+          <th>bndl_prof</th>
+          <th>t_sngl_min</th>
+          <th>t_bndl_min</th>
+          <th>t_farm_min</th>
+        </tr>
+      </tfoot>
+    </table>
+
+</body>
+
+</html>
+
